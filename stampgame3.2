@@ -141,10 +141,10 @@ try:
             if(fr100 <= 0 or fr100 == None):
                 break
             location = lMultiplier * len(Tile100)
-            Tile100.append(canvas1.create_rectangle(32+sWidth, location+10, 116-sWidth, location+10+addheight, fill='green'))
+            Tile100.append(canvas2.create_rectangle(32+sWidth, location+10, 116-sWidth, location+10+addheight, fill='red'))
             if small == False:
                 location += 10
-            Text100.append(canvas1.create_text(77, location+24, fill="black", font="Arial",text="1000"))
+            Text100.append(canvas2.create_text(77, location+24, fill="black", font="Arial",text="100"))
             canvas2.update()
             fr100 -= 1
             
@@ -152,10 +152,10 @@ try:
             if(fr10 <= 0 or fr10 == None):
                 break
             location = lMultiplier * len(Tile10)
-            Tile10.append(canvas1.create_rectangle(32+sWidth, location+10, 116-sWidth, location+10+addheight, fill='green'))
+            Tile10.append(canvas3.create_rectangle(32+sWidth, location+10, 116-sWidth, location+10+addheight, fill='blue'))
             if small == False:
                 location += 10
-            Text10.append(canvas1.create_text(77, location+24, fill="black", font="Arial",text="1000"))
+            Text10.append(canvas3.create_text(77, location+24, fill="black", font="Arial",text="10"))
             canvas3.update()
             fr10 -= 1
 
@@ -163,10 +163,10 @@ try:
             if(fr1 <= 0 or fr1 == None):
                 break
             location = lMultiplier * len(Tile1)
-            Tile1.append(canvas1.create_rectangle(32+sWidth, location+10, 116-sWidth, location+10+addheight, fill='green'))
+            Tile1.append(canvas4.create_rectangle(32+sWidth, location+10, 116-sWidth, location+10+addheight, fill='green'))
             if small == False:
                 location += 10
-            Text1.append(canvas1.create_text(77, location+24, fill="black", font="Arial",text="1000"))
+            Text1.append(canvas4.create_text(77, location+24, fill="black", font="Arial",text="1"))
             canvas4.update()
             fr1 -= 1
 
