@@ -3,7 +3,7 @@ from time import sleep
 
 # change this to current version
 # this version is technically the same but it is coded better than 3.2
-version = 3.2
+version = 3.22
 
 print("Welcome to StampGame"+str(version)+'\n')
 print("Keep this window open")
@@ -198,7 +198,7 @@ try:
         if delAll:
             stopAt = 0
         stopAt = int(stopAt)
-        #print("Stops at:",stopAt)
+        print("Stops at:",stopAt)
         while not delAll:
             if(len(Tile1) <= stopAt):
                 break
@@ -213,7 +213,7 @@ try:
                 Tile1.pop(a-1)
             else:
                 stop += 1
-                    
+
             if(Tile10[b-1] == None and b >= stopAt):
                 Text10.pop(b-1)
                 Tile10.pop(b-1)
@@ -240,7 +240,7 @@ try:
             b = len(Tile10)
             c = len(Tile100)
             d = len(Tile1000)   
-            #print(d,c,b,a)
+            print(d,c,b,a)
         
 
 
@@ -356,7 +356,7 @@ try:
         testB[x].destroy()
         testB.pop(x)
         
-        #print(a,b,c,d,e,x)
+        print(a,b,c,d,e,x)
         
         best = (a+b+c+b) / 4
         best = int(best)
@@ -368,15 +368,22 @@ try:
             best = c
         if d < best:
             best = d
-        numL = locationArr[e]//55 +1
-        #print(e,len(line1))
+        numL = locationArr[e]//52 +1
+        print(e,len(line1))
         
         
         locationArr.pop()
+        
         canvas1.delete(line1000[e])
         canvas2.delete(line100[e])
         canvas3.delete(line10[e])
         canvas4.delete(line1[e])
+        line1000.pop()
+        line100.pop()
+        line10.pop()
+        line1.pop()
+
+        
         canvas1.delete(Text1000[numL-1])
         canvas2.delete(Text100[numL-1])
         canvas3.delete(Text10[numL-1])
@@ -396,15 +403,13 @@ try:
         Tile10.pop(numL)
         Tile100.pop(numL)
         Tile1000.pop(numL)
-        line1000.pop()
-        line100.pop()
-        line10.pop()
-        line1.pop()
-
+        
+        
         numL = len(Tile1000)
         x = len(testB)-1
         a = len(line1000)-1
-        delGarbage(0)
+        e = len(locationArr)-1
+        delGarbage()
         
             
     def add(mode=None):
@@ -660,7 +665,7 @@ try:
     button100Del.bind("<ButtonRelease-1>", Del100)
     button1000Del.bind("<ButtonRelease-1>", Del1000)
     buttonClr.bind("<ButtonRelease-1>", clr1)
-    buttonExt.bind("<ButtonRelease-1>", delGarbage)
+    buttonExt.bind("<ButtonRelease-1>", clr1)
     buttonExtt.bind("<ButtonRelease-1>", ext)
     buttonAdd.bind("<ButtonRelease-1>", add,)
     buttonDiv.bind("<ButtonRelease-1>", div)
@@ -677,7 +682,7 @@ except SystemExit:
     window.destroy()
     print("Exiting..")
     spinning_cursor(1)
-    SystemExit("Aborted")
+    SystemExit(0)
 
 except Exception as Error:
     print("An Error has Occured")
