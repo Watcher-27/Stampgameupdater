@@ -1,9 +1,8 @@
-import sys,os
+import sys, os, json, csv
 from time import sleep
 
 # change this to current version
-# this version is technically the same but it is coded better than 3.2
-version = 3.22
+version = 3.23
 
 print("Welcome to StampGame"+str(version)+'\n')
 print("Keep this window open")
@@ -16,7 +15,6 @@ try:
     import tkinter
     from tkinter import messagebox
     from tqdm import tqdm
-    import json
     import pyautogui
 
     sleep(0.1)
@@ -94,7 +92,7 @@ try:
 
     if(upp > version):
         print("A new version of StampGame has been released.")
-        os.system("updatenote.py")
+        os.system("stampgameupdater.py")
             
     sleep(0.1)
     up.close()
@@ -246,6 +244,7 @@ try:
 
 
     def clr1(event):
+        delGarbage(0)
         x = len(testB)-1
         a = len(Tile1)
         b = len(Tile10)
@@ -337,6 +336,10 @@ try:
     def smallTurn(event):
         global small
         small = not small
+        if small:
+            lMultiplier = 32
+        else:
+            lMultiplier = 52
 
     def rlDel(event):
         global testB
@@ -368,7 +371,7 @@ try:
             best = c
         if d < best:
             best = d
-        numL = locationArr[e]//52 +1
+        numL = locationArr[e]//lMultiplier +1
         #print(e,len(line1))
         
         
